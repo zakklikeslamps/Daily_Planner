@@ -26,7 +26,7 @@ $(document).ready(function () {
     //Current Hour
     //var currentHour = $("#currentDay");
     //currentHour.content(currentHour);
-
+    //^Affecting date in header
 
 
     //At another student's suggestion, added a border for aesthetic & visual aide. 
@@ -34,52 +34,105 @@ $(document).ready(function () {
 
     $("#btn8").click(function () {
         var content = $("#8AM").val();
-        slots[8] = content;;
+        slots[8] = content
         localStorage.setItem(8, JSON.stringify(content));
     });
 
-    $("#btn8").click(function () {
-        var content = $("#8AM").val();
-        slots[8] = content;;
-        localStorage.setItem(8, JSON.stringify(content));
+    $("#btn9").click(function () {
+        var content = $("#9AM").val();
+        slots[9] = content
+        localStorage.setItem(9, JSON.stringify(content));
     });
 
-    $("#btn8").click(function () {
-        var content = $("#8AM").val();
-        slots[8] = content;;
-        localStorage.setItem(8, JSON.stringify(content));
+    $("#btn10").click(function () {
+        var content = $("#10AM").val();
+        slots[10] = content
+        localStorage.setItem(10, JSON.stringify(content));
     });
 
-    $("#btn8").click(function () {
-        var content = $("#8AM").val();
-        slots[8] = content;;
-        localStorage.setItem(8, JSON.stringify(content));
+    $("#btn11").click(function () {
+        var content = $("#11AM").val();
+        slots[11] = content
+        localStorage.setItem(11, JSON.stringify(content));
     });
 
-    $("#btn8").click(function () {
-        var content = $("#8AM").val();
-        slots[8] = content;;
-        localStorage.setItem(8, JSON.stringify(content));
+    $("#btn12").click(function () {
+        var content = $("#12PM").val();
+        slots[12] = content
+        localStorage.setItem(12, JSON.stringify(content));
     });
 
-    $("#btn8").click(function () {
-        var content = $("#8AM").val();
-        slots[8] = content;;
-        localStorage.setItem(8, JSON.stringify(content));
+    $("#btn1").click(function () {
+        var content = $("#1PM").val();
+        slots[1] = content
+        localStorage.setItem(1, JSON.stringify(content));
+    });
+
+    $("#btn2").click(function () {
+        var content = $("#2PM").val();
+        slots[2] = content
+        localStorage.setItem(2, JSON.stringify(content));
+    });
+
+    $("#btn3").click(function () {
+        var content = $("#3PM").val();
+        slots[3] = content
+        localStorage.setItem(3, JSON.stringify(content));
+    });
+
+    $("#btn4").click(function () {
+        var content = $("#4PM").val();
+        slots[4] = content
+        localStorage.setItem(4, JSON.stringify(content));
+    });
+
+    $("#btn5").click(function () {
+        var content = $("#5PM").val();
+        slots[5] = content
+        localStorage.setItem(5, JSON.stringify(content));
     });
 
 
-
-
-
-
-
+    //
     var storedData = JSON.parse(window.localStorage.getItem(8))
     $('8AM').val(storedData);
 
+    var storedData = JSON.parse(window.localStorage.getItem(9))
+    $('9AM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(10))
+    $('10AM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(11))
+    $('11AM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(12))
+    $('12PM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(1))
+    $('1PM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(2))
+    $('2PM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(3))
+    $('3PM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(4))
+    $('4PM').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(5))
+    $('5PM').val(storedData);
+
+    //Adds current moment in time (to the second) for moment.JS, then converts UTC to local time
+    var date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
+    var utc = moment.utc(date).toDate();
+    var localTime = moment(utc).local().format('YYYY-MM-DD HH:mm:ss');
+    var now = moment().hour();
+
     //// if it is a past hour we want a grey background 
 
-    /*for (i = 9; i < 18; i++) {
+    for (i = 9; i < 18; i++) {
         var timeCheck = "#area" + i
         console.log(timeCheck)
     
@@ -92,7 +145,7 @@ $(document).ready(function () {
         if (i > presentHour) {
             $(timeCheck).css("background-color", "green")
         }
-    }*/
+    }
 
 
     $("textarea").each(function () {
