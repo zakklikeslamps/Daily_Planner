@@ -130,6 +130,25 @@ $(document).ready(function () {
     const localTime = moment(utc).local().format('YYYY-MM-DD HH:mm:ss');
     let now = moment().hour();
 
+    //forEach loop (can't get to work right)
+    /*slots.forEach(function (slots) {
+        var timeLog = parseInt($(this).attr("name"));
+
+        if (i > now) {
+            $(slots).addClass("future")
+        }
+
+        else if (i < now) {
+            $(slots).addClass("past")
+        }
+
+        else {
+            $(slots).addClass("present")
+        }
+
+    })*/
+
+    //Color Coordination still not working right: only past hours show as gray.
     //hours past get a grey background 
 
     for (i = 8; i < 18; i++) {
@@ -137,73 +156,79 @@ $(document).ready(function () {
         console.log(timeLog)
 
         $(timeLog).css("background-color", "grey")
+
     }
+
     //hours that have yet to come get a green background 
     for (i = 8; i < 18; i++) {
         var timeLog = "#slot" + i
+
         console.log(timeLog)
-        if (i > now) {
+        if (i > now)
             $(timeLog).css("background-color", "green")
-        }
-    }
-    if (now === 12) {
-        $("slot12").css("background-color", "red")
+
     }
 
+    //current hour gets a red background 
+
+    if (now === i) {
+        $(timeLog).css("background-color", "red");
+
+    }
+});
     /*$("textarea").each(function () {
-        var time = parseInt($(this).attr("name"));
-        if (time < present) {
-            $(this).addClass("past");
-        }
+var time = parseInt($(this).attr("name"));
+if (time < present) {
+$(this).addClass("past");
+}
 
-        else if (time === present) {
-            $(this).addClass("present")
-        }
+else if (time === present) {
+$(this).addClass("present")
+}
 
-        else {
-            $(this).addClass("future")
-        }
-    })
-
-
-    //save button
-    /*$("button").on("click", function () {
-
-        var hour = $(this).parent().attr("id")
-        var value = $(this).siblings("textArea").val().trim()
-        localStorage = setItem(hour, value);
-
-        //Redundant block//
-        /*localStorage.setItem("8:00", text8AM.val())
-        localStorage.setItem("9:00", text9AM.val())
-        localStorage.setItem("10:00", text10AM.val())
-        localStorage.setItem("11:00", text11AM.val())
-        localStorage.setItem("12:00", text12AM.val())
-        localStorage.setItem("13:00", text1PM.val())
-        localStorage.setItem("14:00", text2PM.val())
-        localStorage.setItem("15:00", text3PM.val())
-        localStorage.setItem("16:00", text4PM.val())
-        localStorage.setItem("17:00", text5PM.val())
-        localStorage.setItem("18:00", text6PM.val())
-        localStorage.setItem("19:00", text7PM.val())
-    })
-
-    Displaying content
-    slots.forEach(function (hour) {
-        $('#${hour} .description').val(localStorage.getItem(hour));
-    })
-    //Redundant block//
-    $("#8").val(localStorage.getItem("8:00"));
-    $("#9").val(localStorage.getItem("9:00"));
-    $("#10").val(localStorage.getItem("10:00"));
-    $("#11").val(localStorage.getItem("11:00"));
-    $("#12").val(localStorage.getItem("12:00"));
-    $("#1").val(localStorage.getItem("13:00"));
-    $("#2").val(localStorage.getItem("14:00"));
-    $("#3").val(localStorage.getItem("15:00"));
-    $("#4").val(localStorage.getItem("16:00"));
-    $("#5").val(localStorage.getItem("17:00"));
-    $("#6").val(localStorage.getItem("18:00"));
-    $("#7").val(localStorage.getItem("19:00"));*/
-
+else {
+$(this).addClass("future")
+}
 })
+
+
+//save button
+/*$("button").on("click", function () {
+
+var hour = $(this).parent().attr("id")
+var value = $(this).siblings("textArea").val().trim()
+localStorage = setItem(hour, value);
+
+//Redundant block//
+/*localStorage.setItem("8:00", text8AM.val())
+localStorage.setItem("9:00", text9AM.val())
+localStorage.setItem("10:00", text10AM.val())
+localStorage.setItem("11:00", text11AM.val())
+localStorage.setItem("12:00", text12AM.val())
+localStorage.setItem("13:00", text1PM.val())
+localStorage.setItem("14:00", text2PM.val())
+localStorage.setItem("15:00", text3PM.val())
+localStorage.setItem("16:00", text4PM.val())
+localStorage.setItem("17:00", text5PM.val())
+localStorage.setItem("18:00", text6PM.val())
+localStorage.setItem("19:00", text7PM.val())
+})
+
+Displaying content
+slots.forEach(function (hour) {
+$('#${hour} .description').val(localStorage.getItem(hour));
+})
+//Redundant block//
+$("#8").val(localStorage.getItem("8:00"));
+$("#9").val(localStorage.getItem("9:00"));
+$("#10").val(localStorage.getItem("10:00"));
+$("#11").val(localStorage.getItem("11:00"));
+$("#12").val(localStorage.getItem("12:00"));
+$("#1").val(localStorage.getItem("13:00"));
+$("#2").val(localStorage.getItem("14:00"));
+$("#3").val(localStorage.getItem("15:00"));
+$("#4").val(localStorage.getItem("16:00"));
+$("#5").val(localStorage.getItem("17:00"));
+$("#6").val(localStorage.getItem("18:00"));
+$("#7").val(localStorage.getItem("19:00"));*/
+
