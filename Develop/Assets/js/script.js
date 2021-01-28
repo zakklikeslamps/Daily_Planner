@@ -89,13 +89,13 @@ $(document).ready(function () {
         localStorage.setItem(5, JSON.stringify(content));
     });
 
-    $("#bt6").click(function () {
+    $("#btn6").click(function () {
         var content = $("#slot18").val();
         slots[6] = content
         localStorage.setItem(6, JSON.stringify(content));
     });
 
-    $("#bt7").click(function () {
+    $("#btn7").click(function () {
         var content = $("#slot19").val();
         slots[7] = content
         localStorage.setItem(7, JSON.stringify(content));
