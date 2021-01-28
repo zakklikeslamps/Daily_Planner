@@ -33,61 +33,61 @@ $(document).ready(function () {
     //$("div").css("border", "3px solid blue"); (why not working?)
 
     $("#btn8").click(function () {
-        var content = $("#8AM").val();
+        var content = $("#slot8").val();
         slots[8] = content
         localStorage.setItem(8, JSON.stringify(content));
     });
 
     $("#btn9").click(function () {
-        var content = $("#9AM").val();
+        var content = $("#slot9").val();
         slots[9] = content
         localStorage.setItem(9, JSON.stringify(content));
     });
 
     $("#btn10").click(function () {
-        var content = $("#10AM").val();
+        var content = $("#slot10").val();
         slots[10] = content
         localStorage.setItem(10, JSON.stringify(content));
     });
 
     $("#btn11").click(function () {
-        var content = $("#11AM").val();
+        var content = $("#slot11").val();
         slots[11] = content
         localStorage.setItem(11, JSON.stringify(content));
     });
 
     $("#btn12").click(function () {
-        var content = $("#12PM").val();
+        var content = $("#slot12").val();
         slots[12] = content
         localStorage.setItem(12, JSON.stringify(content));
     });
 
     $("#btn1").click(function () {
-        var content = $("#1PM").val();
+        var content = $("#slot1").val();
         slots[1] = content
         localStorage.setItem(1, JSON.stringify(content));
     });
 
     $("#btn2").click(function () {
-        var content = $("#2PM").val();
+        var content = $("#slot2").val();
         slots[2] = content
         localStorage.setItem(2, JSON.stringify(content));
     });
 
     $("#btn3").click(function () {
-        var content = $("#3PM").val();
+        var content = $("#slot3").val();
         slots[3] = content
         localStorage.setItem(3, JSON.stringify(content));
     });
 
     $("#btn4").click(function () {
-        var content = $("#4PM").val();
+        var content = $("#slot4").val();
         slots[4] = content
         localStorage.setItem(4, JSON.stringify(content));
     });
 
     $("#btn5").click(function () {
-        var content = $("#5PM").val();
+        var content = $("#slot5").val();
         slots[5] = content
         localStorage.setItem(5, JSON.stringify(content));
     });
@@ -95,60 +95,62 @@ $(document).ready(function () {
 
     //
     var storedData = JSON.parse(window.localStorage.getItem(8))
-    $('8AM').val(storedData);
+    $('#slot8').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(9))
-    $('9AM').val(storedData);
+    $('#slot9').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(10))
-    $('10AM').val(storedData);
+    $('#slot10').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(11))
-    $('11AM').val(storedData);
+    $('#slot11').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(12))
-    $('12PM').val(storedData);
+    $('#slot12').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(1))
-    $('1PM').val(storedData);
+    $('#slot1').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(2))
-    $('2PM').val(storedData);
+    $('#slot2').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(3))
-    $('3PM').val(storedData);
+    $('#slot3').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(4))
-    $('4PM').val(storedData);
+    $('#slot4').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(5))
-    $('5PM').val(storedData);
+    $('#slot5').val(storedData);
 
     //Adds current moment in time (to the second) for moment.JS, then converts UTC to local time
     var date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
-    var utc = moment.utc(date).toDate();
-    var localTime = moment(utc).local().format('YYYY-MM-DD HH:mm:ss');
-    var now = moment().hour();
+    let utc = moment.utc(date).toDate();
+    const localTime = moment(utc).local().format('YYYY-MM-DD HH:mm:ss');
+    let now = moment().hour();
 
-    //// if it is a past hour we want a grey background 
+    //hours past get a grey background 
 
-    for (i = 9; i < 18; i++) {
-        var timeCheck = "#area" + i
-        console.log(timeCheck)
-    
-        $(timeCheck).css("background-color", "grey")
+    for (i = 8; i < 18; i++) {
+        var timeLog = "#slot" + i
+        console.log(timeLog)
+
+        $(timeLog).css("background-color", "grey")
     }
-    //// if it is a future  hour we want a green background 
-    for (i = 9; i < 18; i++) {
-        var timeCheck = "#area" + i
-        console.log(timeCheck)
-        if (i > presentHour) {
-            $(timeCheck).css("background-color", "green")
+    //hours that have yet to come get a green background 
+    for (i = 8; i < 18; i++) {
+        var timeLog = "#slot" + i
+        console.log(timeLog)
+        if (i > now) {
+            $(timeLog).css("background-color", "green")
         }
     }
+    if (now === 12) {
+        $("slot12").css("background-color", "red")
+    }
 
-
-    $("textarea").each(function () {
+    /*$("textarea").each(function () {
         var time = parseInt($(this).attr("name"));
         if (time < present) {
             $(this).addClass("past");
