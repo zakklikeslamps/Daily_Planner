@@ -1,22 +1,81 @@
+//Object of hour slots
+var slots = {
+    "8": "",
+    "9": "",
+    "10": "",
+    "11": "",
+    "12": "",
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+}
+
 //Keeps script from loading until the page has fully loaded. 
 $(document).ready(function () {
+
     //Current Date via moment.JS
     const currentDay = moment().format("MMMM Do YYYY");
     console.log(currentDay);
+
     $("#currentDay").append(currentDay);
     const present = parseInt(moment().format("HH"));
     console.log(present)
 
-    var currentHour = moment().format('LT');
-
-    //Array of hour slots
-    var slots = [8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7];
-
+    //Current Hour
+    //var currentHour = $("#currentDay");
+    //currentHour.content(currentHour);
 
 
 
+    //At another student's suggestion, added a border for aesthetic & visual aide. 
+    //$("div").css("border", "3px solid blue"); (why not working?)
+
+    $("#btn8").click(function () {
+        var content = $("#8AM").val();
+        slots[8] = content;;
+        localStorage.setItem(8, JSON.stringify(content));
+    });
+
+    $("#btn8").click(function () {
+        var content = $("#8AM").val();
+        slots[8] = content;;
+        localStorage.setItem(8, JSON.stringify(content));
+    });
+
+    $("#btn8").click(function () {
+        var content = $("#8AM").val();
+        slots[8] = content;;
+        localStorage.setItem(8, JSON.stringify(content));
+    });
+
+    $("#btn8").click(function () {
+        var content = $("#8AM").val();
+        slots[8] = content;;
+        localStorage.setItem(8, JSON.stringify(content));
+    });
+
+    $("#btn8").click(function () {
+        var content = $("#8AM").val();
+        slots[8] = content;;
+        localStorage.setItem(8, JSON.stringify(content));
+    });
+
+    $("#btn8").click(function () {
+        var content = $("#8AM").val();
+        slots[8] = content;;
+        localStorage.setItem(8, JSON.stringify(content));
+    });
 
 
+
+
+
+
+
+    var storedData = JSON.parse(window.localStorage.getItem(8))
+    $('8AM').val(storedData);
 
     //// if it is a past hour we want a grey background 
 
@@ -49,14 +108,11 @@ $(document).ready(function () {
         else {
             $(this).addClass("future")
         }
-
-
-
     })
 
 
     //save button
-    $("button").on("click", function () {
+    /*$("button").on("click", function () {
 
         var hour = $(this).parent().attr("id")
         var value = $(this).siblings("textArea").val().trim()
@@ -74,10 +130,10 @@ $(document).ready(function () {
         localStorage.setItem("16:00", text4PM.val())
         localStorage.setItem("17:00", text5PM.val())
         localStorage.setItem("18:00", text6PM.val())
-        localStorage.setItem("19:00", text7PM.val())*/
+        localStorage.setItem("19:00", text7PM.val())
     })
 
-    //Displaying content
+    Displaying content
     slots.forEach(function (hour) {
         $('#${hour} .description').val(localStorage.getItem(hour));
     })
@@ -93,6 +149,6 @@ $(document).ready(function () {
     $("#4").val(localStorage.getItem("16:00"));
     $("#5").val(localStorage.getItem("17:00"));
     $("#6").val(localStorage.getItem("18:00"));
-    $("#7").val(localStorage.getItem("19:00"));
+    $("#7").val(localStorage.getItem("19:00"));*/
 
 })
