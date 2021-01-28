@@ -13,6 +13,8 @@ $(document).ready(function () {
         "3": "",
         "4": "",
         "5": "",
+        "6": "",
+        "7": "",
     }
 
 
@@ -58,35 +60,46 @@ $(document).ready(function () {
     });
 
     $("#btn1").click(function () {
-        var content = $("#slot1").val();
+        var content = $("#slot13").val();
         slots[1] = content
         localStorage.setItem(1, JSON.stringify(content));
     });
 
     $("#btn2").click(function () {
-        var content = $("#slot2").val();
+        var content = $("#slot14").val();
         slots[2] = content
         localStorage.setItem(2, JSON.stringify(content));
     });
 
     $("#btn3").click(function () {
-        var content = $("#slot3").val();
+        var content = $("#slot15").val();
         slots[3] = content
         localStorage.setItem(3, JSON.stringify(content));
     });
 
     $("#btn4").click(function () {
-        var content = $("#slot4").val();
+        var content = $("#slot16").val();
         slots[4] = content
         localStorage.setItem(4, JSON.stringify(content));
     });
 
     $("#btn5").click(function () {
-        var content = $("#slot5").val();
+        var content = $("#slot17").val();
         slots[5] = content
         localStorage.setItem(5, JSON.stringify(content));
     });
 
+    $("#bt6").click(function () {
+        var content = $("#slot18").val();
+        slots[6] = content
+        localStorage.setItem(6, JSON.stringify(content));
+    });
+
+    $("#bt7").click(function () {
+        var content = $("#slot19").val();
+        slots[7] = content
+        localStorage.setItem(7, JSON.stringify(content));
+    });
 
     //
     var storedData = JSON.parse(window.localStorage.getItem(8))
@@ -105,19 +118,25 @@ $(document).ready(function () {
     $('#slot12').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(1))
-    $('#slot1').val(storedData);
+    $('#slot13').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(2))
-    $('#slot2').val(storedData);
+    $('#slot14').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(3))
-    $('#slot3').val(storedData);
+    $('#slot15').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(4))
-    $('#slot4').val(storedData);
+    $('#slot16').val(storedData);
 
     var storedData = JSON.parse(window.localStorage.getItem(5))
-    $('#slot5').val(storedData);
+    $('#slot17').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(6))
+    $('#slot18').val(storedData);
+
+    var storedData = JSON.parse(window.localStorage.getItem(7))
+    $('#slot19').val(storedData);
 
     //Adds current moment in time UTC for moment.JS, then converts UTC to local time
     var date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
@@ -146,21 +165,21 @@ $(document).ready(function () {
     //Color Coordination still not working right: only past hours show as gray.
     //hours past get a grey background 
 
-    for (i = 8; i < 18; i++) {
+    for (i = 8; i < 20; i++) {
         var timeLog = "#slot" + i
-        console.log(timeLog)
+
 
         $(timeLog).css("background-color", "grey")
 
     }
 
     //hours that have yet to come get a green background 
-    for (i = 8; i < 18; i++) {
+    for (i = 8; i < 20; i++) {
         var timeLog = "#slot" + i
 
         console.log(timeLog)
         if (i > now)
-            $(timeLog).css("background-color", "green")
+            $(timeLog).css("background-color", "green");
 
     }
 
