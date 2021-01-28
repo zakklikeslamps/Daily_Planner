@@ -1,19 +1,20 @@
-//Object of hour slots
-var slots = {
-    "8": "",
-    "9": "",
-    "10": "",
-    "11": "",
-    "12": "",
-    "1": "",
-    "2": "",
-    "3": "",
-    "4": "",
-    "5": "",
-}
-
 //Keeps script from loading until the page has fully loaded. 
 $(document).ready(function () {
+
+    //Object of hour slots
+    var slots = {
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+    }
+
 
     //Current Date via moment.JS
     const currentDay = moment().format("MMMM Do YYYY");
@@ -23,14 +24,8 @@ $(document).ready(function () {
     const present = parseInt(moment().format("HH"));
     console.log(present)
 
-    //Current Hour
-    //var currentHour = $("#currentDay");
-    //currentHour.content(currentHour);
-    //^Affecting date in header
-
-
     //At another student's suggestion, added a border for aesthetic & visual aide. 
-    //$("div").css("border", "3px solid blue"); (why not working?)
+    $("div").css("border", "3px solid blue");
 
     $("#btn8").click(function () {
         var content = $("#slot8").val();
@@ -124,7 +119,7 @@ $(document).ready(function () {
     var storedData = JSON.parse(window.localStorage.getItem(5))
     $('#slot5').val(storedData);
 
-    //Adds current moment in time (to the second) for moment.JS, then converts UTC to local time
+    //Adds current moment in time UTC for moment.JS, then converts UTC to local time
     var date = moment.utc().format('YYYY-MM-DD HH:mm:ss');
     let utc = moment.utc(date).toDate();
     const localTime = moment(utc).local().format('YYYY-MM-DD HH:mm:ss');
