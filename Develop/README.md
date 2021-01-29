@@ -42,6 +42,3 @@ When save button is clicked:
 
 When page is refreshed: 
 -Content user input remains in time slot (saved event persists)
-
-## Still having issues with:
--Color Coordination: past hours are the only ones that correspond w the color given (gray).Loc
